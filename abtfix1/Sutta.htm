@@ -26,7 +26,6 @@ a b {color:blue;}
 vr  {color:red; }
 </style>
 
-<script type="text/javascript" src="../includes/mark.min.js"></script>
 <script type="text/javascript" src="open-graph.js"></script>
 <script type="text/javascript" src="../includes/Includes-Top-Level.js"></script>
 </head>
@@ -89,11 +88,11 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 </tr>
 
 <tr>
-<th class="SuttaName"><input type="text" style="width:320px;" id="TableInput" onkeyup="FilterSutta()" placeholder="Enter Sutta Name and Number, or Abbreviation"></th>
+<th class="SuttaName"><input type="text" style="width:320px;" id="TableInput" placeholder="Enter Sutta Name and Number, or Abbreviation"></th>
 <th class="Links" id="Links"><p>&#x2003;</p></th>
 </tr>
 
-<tr><td><p><b>DN Dīghanikāyo (1-34)</b></p></td><td><p><a href="https://suttacentral.net/dn"><b>Index</b></a></p></td></tr>
+<tr><td><p><b>DN Dīghanikāyo (1-34) </b></p></td><td><p><a href="https://suttacentral.net/dn"><b>Index</b></a></p></td></tr>
 
 <tr><td><p><b>DN Sīlakkhandhavaggo (1-13)</b></p></td><td><p><a href="https://suttacentral.net/dn-silakkhandhavagga"><b>Index</b></a></p></td></tr>
 
@@ -12160,7 +12159,7 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 
 <tr><td><p>Ja 541 Nimijātakaṁ</p></td><td><p><a href="https://suttacentral.net/ja541/pli/ms">Pāḷi</a>&#x2003;<a href="https://www.sacred-texts.com/bud/j6/j6007.htm">Eng</a></p></td></tr>
 
-<!-- Sri Lankan Variants --> 
+<!-- Sri Lankan Variants -->
 
 <tr><td><p>Ja 542 Khaṇḍahālajātakaṁ (Laṅka)</p></td><td><p><a href="https://suttacentral.net/ja544/pli/ms">Pāḷi</a>&#x2003;<a href="https://www.sacred-texts.com/bud/j6/j6008.htm">Eng</a></p></td></tr>
 
@@ -12174,7 +12173,7 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 
 <tr><td><p>Ja 547 Mahā-Vessantarajātakaṁ (Laṅka)</p></td><td><p><a href="https://suttacentral.net/ja547/pli/ms">Pāḷi</a>&#x2003;<a href="https://www.sacred-texts.com/bud/j6/j6013.htm">Eng</a></p></td></tr>
 
-<!-- Burmese Variants --> 
+<!-- Burmese Variants -->
 
 <tr><td><p>Ja 542 Ummaṅgajātakaṁ (Burmese)</p></td><td><p><a href="https://suttacentral.net/ja542/pli/ms">Pāḷi</a>&#x2003;<a href="https://www.sacred-texts.com/bud/j6/j6012.htm">Eng</a></p></td></tr>
 
@@ -12188,7 +12187,7 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 
 <tr><td><p>Ja 547 Vessantarajātakaṁ (Burmese)</p></td><td><p><a href="https://suttacentral.net/ja547/pli/ms">Pāḷi</a>&#x2003;<a href="https://www.sacred-texts.com/bud/j6/j6013.htm">Eng</a></p></td></tr>
 
-<!-- PTS Variants --> 
+<!-- PTS Variants -->
 
 <tr><td><p>Ja 545 Vidhurapaṇḍitajātakaṁ (PTS)</p></td><td><p><a href="https://suttacentral.net/ja546/pli/ms">Pāḷi</a>&#x2003;<a href="https://www.sacred-texts.com/bud/j6/j6011.htm">Eng</a></p></td></tr>
 
@@ -13009,51 +13008,58 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 <tr><td><p>Mil 7.7.7  Issāsaṅgapañho</p></td><td><p><a href="https://suttacentral.net/mil7.7.7/pli/ms">Pāḷi</a>&#x2003;<a href="https://suttacentral.net/mil7.7.7/en/tw_rhysdavids">Eng</a></p></td></tr>
 
 <tr><td><p>Mil 8. Nigamanaṁ</p></td><td><p><a href="https://suttacentral.net/mil8/pli/ms">Pāḷi</a>&#x2003;<a href="https://suttacentral.net/mil8/en/tw_rhysdavids">Eng</a></p></td></tr>
+<tr id="notFoundMarker" style="display: none">
+  <td>Not found</td><td></td>
+</tr>
 
 </div>
 
 </table>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
 <script>
-function FilterSutta() {
-    // Declare variables
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("TableInput");
-    filter = input.value.toLowerCase();
-    filter = filter.replace(/ṃ/g, "ṁ")
-    filter = filter.replace("cull", "cūḷ")
-
-    table = document.getElementById("SuttaTable");
-    tr = table.getElementsByTagName("tr");
-
-    if (filter.length < 3) filter = ""
-    const variations = { 
-        'a': '[aā]',
-        'i': '[iī]',
-        'u': '[uū]',
-        'n': '[nñṇṅ]',
-        't': '[tṭ]',
-        'd': '[dḍ]',
-        'l': '[lḷ]',
-        'm': '[mṁṁ]',
+$(function() {
+  function createRegEx(term) {
+    const variations = {
+      'a': '[aā]',
+      'i': '[iī]',
+      'u': '[uū]',
+      'r': '[rṛ]',
+      'n': '[nñṇṅ]',
+      't': '[tṭ]',
+      'd': '[dḍ]',
+      'l': '[lḷ]',
+      'm': '[mṁṁ]',
+      's': '[sśṣ]',
+      'h': '[hḥ]',
     }
-    const str = filter.replace(/[aiuntdlm]/g, (m) => variations[m])
-    const filterRegex = new RegExp(str)
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            if (td.innerHTML.toLowerCase().search(filterRegex) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
+    const str = term.toLowerCase().replace(/[aiurntdlmsh]/g, (m) => variations[m])
+    return new RegExp(str, 'gi')
+  }
+
+  const $input = $("input[id='TableInput']"), $context = $("#SuttaTable tr").not(":lt(2)");
+  $input.on("input", function() {
+    const term = $(this).val();
+    $context.show().unmark();
+    if (!term || term.length < 3) {
+      return
+    }
+
+    const filterRegex = createRegEx(term)
+    $context.markRegExp(filterRegex, {
+      'diacritics': true,
+      'done': function() {
+        $context.not(":has(mark)").hide();
+        if ($context.has("mark").length) {
+          $('#notFoundMarker').hide()
+        } else {
+          $('#notFoundMarker').show()
         }
-    }
-}
-var context = document.querySelector("td");
-var instance = new Mark(context);
-instance.mark(filterRegex);
+      },
+    });
+  });
+});
 </script>
 
 <p>&#160;</p>

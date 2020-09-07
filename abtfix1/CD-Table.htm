@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html> 
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,8 +15,8 @@
 p {color:black; }
 tr {width: 720px; display: block; clear: both;}
 td {width: 49%; display: block; float: left; }
-vr {color: green; } 
-s {color: grey; } 
+vr {color: green; }
+s {color: grey; }
 mark{background: orange;}
 </style>
 
@@ -50,7 +50,7 @@ mark{background: orange;}
 
 <thead>
 <tr>
-<th><input type="text" style="width:320px; " id="TableInput" onkeyup="FilterDhp()" placeholder="Enter word or phrase...">
+<th><input type="text" style="width:320px; " id="TableInput" placeholder="Enter word or phrase...">
 </th>
 </tr>
 </thead>
@@ -7356,7 +7356,7 @@ etad buddhānuśāsanan ti ||</p>
 
 <td>
 <p class="Heading6">Śarīrārthagāthā vs 34</p>
-<p>sarvapāpasyākaraṇaṁ<br> 
+<p>sarvapāpasyākaraṇaṁ<br>
 kuśalasyopasaṁpadā |<br>
 svacittaparyavadamanam <br>
 etaṁ buddhānuśāsanaṁ ||</p>
@@ -9894,7 +9894,7 @@ saṁkliṣṭaṁ tv iha jīvate ||</p>
 <p class="Heading6">Jātakamālā 15.2</p>
 <p>sujīvitamahrīkeṇa<br>
 dhvāṅkṣeṇāśucikarmaṇā |<br>
-praskandinā pragalbhena<br> 
+praskandinā pragalbhena<br>
 susaṃkliṣṭaṃ tu jīvitam ||</p>
 </td>
 </tr>
@@ -14176,7 +14176,7 @@ sādhu jivhāya saṁvaro ||</p>
 
 <td>
 <p class="Heading6">Prātimokṣasūtram (Mā) concl. vs 9</p>
-<p>cakṣuṣā saṁvaraḥ sādhuḥ 
+<p>cakṣuṣā saṁvaraḥ sādhuḥ
 sādhuḥ śrotreṇa saṁvaraḥ |
 ghrāṇena saṁvaraḥ sādhuḥ
 sādhujihvāya saṁvaraḥ ||</p>
@@ -16556,88 +16556,59 @@ duḥkhasyāntaṁ prajānāti<br>
 bravīmi brāhmaṇaṁ hi tam //</p>
 </td>
 </tr>
+<tr id="notFoundMarker" style="display: none">
+<td>Not found</td>
+</tr>
 
 </tbody>
 </table>
 
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
 <script>
-function FilterDhp() {
-  // Declare variables
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("TableInput");
-  filter = input.value.toLowerCase();
-  filter = filter.replace(/ṃ/g, "ṁ")
-
-  table = document.getElementById("DhpParallels");
-
-  const trs = [].slice.call(table.getElementsByTagName("tr")).splice(1)
-  clearAllHighlights(trs)
-
-  // Reset everything if filter is too small
-  if (filter.length < 3) {
-    showAllRows(trs)
-    return
-  }
-
-  const variations = { 
-    'a': '[aā]',
-    'i': '[iī]',
-    'u': '[uū]',
-    'r': '[rṛ]',
-    'n': '[nñṇṅ]',
-    't': '[tṭ]',
-    'd': '[dḍ]',
-    'l': '[lḷ]',
-    'm': '[mṁṁ]',
-    's': '[sśṣ]',
-    'h': '[hḥ]',
-  }
-  const str = filter.replace(/[aiurntdlmsh]/g, (m) => variations[m])
-  const filterRegex = new RegExp(str, 'gi')
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < trs.length; i++) {
-    var trContainsText = [].slice.call(trs[i].getElementsByTagName("td")).some(td => doesTdHaveText(filterRegex, td));
-    if (trContainsText) {
-      showTrAndHighlightMatches(trs[i], filterRegex)
-    } else {
-      hideTr(trs[i])
+$(function() {
+  function createRegEx(term) {
+    const variations = {
+      'a': '[aā]',
+      'i': '[iī]',
+      'u': '[uū]',
+      'r': '[rṛ]',
+      'n': '[nñṇṅ]',
+      't': '[tṭ]',
+      'd': '[dḍ]',
+      'l': '[lḷ]',
+      'm': '[mṁṁ]',
+      's': '[sśṣ]',
+      'h': '[hḥ]',
     }
+    const str = term.toLowerCase().replace(/[aiurntdlmsh]/g, (m) => variations[m])
+    return new RegExp(str, 'gi')
   }
-}
 
-function clearAllHighlights(trs) {
-  trs.forEach(tr => clearHighlights(tr))
-}
-
-function clearHighlights(tr) {
-  tr.innerHTML = tr.innerHTML.replace(/<mark[^/>]*>/g, '').replace(/<\/mark>/g, '')
-}
-
-function showAllRows(trs) {
-  trs.forEach(tr => { tr.style.display = "" })
-}
-
-function showTrAndHighlightMatches(tr, filterRegex) {
-  tr.style.display = "";
-  tr.innerHTML = tr.innerHTML.replace(filterRegex, m => '<mark>' + m + '</mark>');
-}
-
-function hideTr(tr) {
-  tr.style.display = "none";  
-}
-
-function doesTdHaveText(filterRegex, td) {
-  if (td) {
-    if (td.innerHTML.toLowerCase().search(filterRegex) > -1) {
-      return true;
-    } else {
-      return false;
+  const $input = $("input[id='TableInput']"), $context = $("#DhpParallels tr").not(":eq(0)");
+  $input.on("input", function() {
+    const term = $(this).val();
+    $context.show().unmark();
+    if (!term || term.length < 3) {
+      return
     }
-  }
-}
+
+    const filterRegex = createRegEx(term)
+    $context.markRegExp(filterRegex, {
+      'diacritics': true,
+      'done': function() {
+        $context.not(":has(mark)").hide();
+        if ($context.has("mark").length) {
+          $('#notFoundMarker').hide()
+        } else {
+          $('#notFoundMarker').show()
+        }
+      },
+    });
+  });
+});
 </script>
 
 <p>&#160;</p>
