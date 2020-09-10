@@ -50,7 +50,7 @@ mark{background: orange;}
 
 <thead>
 <tr>
-<th><input type="text" style="width:320px; " id="TableInput" onkeyup="FilterDhp()" placeholder="Enter word or phrase...">
+<th><input type="text" style="width:320px; " id="TableInput" onkeyup="AbtSearch.triggerSearch(this, $('#DhpParallels tr').not(':eq(0)'))" placeholder="Enter word or phrase...">
 </th>
 </tr>
 </thead>
@@ -16564,47 +16564,11 @@ bravīmi brāhmaṇaṁ hi tam //</p>
 
 <script type="text/javascript" src="../../includes/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../../includes/mark.min.js"></script>
+<script type="text/javascript" src="../../includes/abtSearch.js"></script>
 <script>
 $(function() {
-  function createRegEx(term) {
-    const variations = {
-      'a': '[aā]',
-      'i': '[iī]',
-      'u': '[uū]',
-      'r': '[rṛ]',
-      'n': '[nñṇṅ]',
-      't': '[tṭ]',
-      'd': '[dḍ]',
-      'l': '[lḷ]',
-      'm': '[mṁṁ]',
-      's': '[sśṣ]',
-      'h': '[hḥ]',
-    }
-    const str = term.toLowerCase().replace(/[aiurntdlmsh]/g, (m) => variations[m])
-    return new RegExp(str, 'gi')
-  }
-
-  const $input = $("input[id='TableInput']"), $context = $("#DhpParallels tr").not(":eq(0)");
-  $input.on("input", function() {
-    const term = $(this).val();
-    $context.show().unmark();
-    if (!term || term.length < 3) {
-      return
-    }
-
-    const filterRegex = createRegEx(term)
-    $context.markRegExp(filterRegex, {
-      'diacritics': true,
-      'done': function() {
-        $context.not(":has(mark)").hide();
-        if ($context.has("mark").length) {
-          $('#notFoundMarker').hide()
-        } else {
-          $('#notFoundMarker').show()
-        }
-      },
-    });
-  });
+  //const $input = $("input[id='TableInput']"), $context = $("#DhpParallels tr").not(":eq(0)");
+  //$input.on("input", () => AbtSearch.triggerSearch($context, $(this).val()));
 });
 </script>
 
