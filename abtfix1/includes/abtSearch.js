@@ -22,7 +22,7 @@ var AbtSearch = (function () {
     return new RegExp(str, 'gi')
   }
 
-  function triggerSearch(input, context) {
+  function triggerSearch(input, context, exclude) {
     context.show().unmark()
 
     var searchTerm = $(input).val()
@@ -33,6 +33,7 @@ var AbtSearch = (function () {
     const filterRegex = createRegEx(searchTerm)
     context.markRegExp(filterRegex, {
       'diacritics': true,
+      'exclude': exclude || [],
       'done': function () {
         context.not(":has(mark)").hide()
         if (context.has("mark").length) {
@@ -49,9 +50,9 @@ var AbtSearch = (function () {
     context.show().unmark()
   }
 
-  function triggerSearchOnEnterKey(event, input, context) {
+  function triggerSearchOnEnterKey(event, input, context, exclude) {
     if (event.keyCode == 13) {
-      triggerSearch(input, context)
+      triggerSearch(input, context, exclude)
     }
   }
 

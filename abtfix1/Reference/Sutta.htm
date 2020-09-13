@@ -99,8 +99,8 @@ depending on the speed <!--&#x1F680;--> of your connection.<br>
 
 <tr>
 <th class="SuttaName">
-<input type="text" style="width:320px;" id="TableInput" placeholder="Enter Sutta Name and Number, or Abbreviation" onkeydown="AbtSearch.triggerSearchOnEnterKey(event, $('#TableInput'), $('#SuttaTable tr').not(':lt(2)'))">
-<button onclick="AbtSearch.triggerSearch($('#TableInput'), $('#SuttaTable tr').not(':lt(2)'))">Search</button>
+<input type="text" style="width:320px;" id="TableInput" placeholder="Enter Sutta Name and Number, or Abbreviation" onkeydown="AbtSearch.triggerSearchOnEnterKey(event, $('#TableInput'), $('#SuttaTable tr').not(':lt(2)'), ['a'])">
+<button onclick="AbtSearch.triggerSearch($('#TableInput'), $('#SuttaTable tr').not(':lt(2)'), ['a'])">Search</button>
 <button id="ResetTable" onclick="AbtSearch.resetSearch($('#TableInput'), $('#SuttaTable tr').not(':lt(2)'))">Reset</button>
 </th>
 <th class="Links" id="Links"><p>&#x2003;</p></th>
