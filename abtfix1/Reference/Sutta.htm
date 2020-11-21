@@ -13050,6 +13050,12 @@ function FilterSutta() {
             }
         }
     }
+
+    if ($('#SuttaTable').find('tr:visible').length === 2) {
+        $('tr#NoResults').show()
+    } else {
+        $('tr#NoResults').hide()
+    }
 }
 </script>
 <script>
@@ -13057,6 +13063,7 @@ function ResetTable(){
   document.getElementById("TableInput").value = "";
   var $rows = $('#SuttaTable tr');
   $rows.show();
+  $('tr#NoResults').hide()
 }
 </script>
 <script>
