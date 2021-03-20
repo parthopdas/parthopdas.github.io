@@ -1,4 +1,4 @@
-var Filter= (function () {
+﻿var Filter= (function () {
   function createRegExStr(term) {
     const variations = {
       'a': '[aā]',

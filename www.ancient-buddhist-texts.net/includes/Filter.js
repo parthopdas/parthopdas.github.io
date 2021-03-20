@@ -1,4 +1,4 @@
-var AbtSearch = (function () {
+var Filter= (function () {
   function createRegEx(term) {
     const variations = {
       'a': '[aā]',
@@ -15,6 +15,7 @@ var AbtSearch = (function () {
     }
     const str = term
       .toLowerCase()
+      .replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
       .replace(/[aiurntdlmsh]/g, (m) => variations[m])
       .replace(/ +$/, '')
       .replace(/ṃ/g, "ṁ")
@@ -22,15 +23,15 @@ var AbtSearch = (function () {
     return new RegExp(str, 'gi')
   }
 
-  function triggerSearch(input, context, exclude) {
+  function triggerFilter(input, context, exclude) {
     context.show().unmark()
 
-    var searchTerm = $(input).val()
-    if (!searchTerm || searchTerm.length < 3) {
+    var filterTerm = $(input).val()
+    if (!filterTerm || filterTerm.length < 3) {
       return
     }
 
-    const filterRegex = createRegEx(searchTerm)
+    const filterRegex = createRegEx(filterTerm)
     context.markRegExp(filterRegex, {
       'diacritics': true,
       'exclude': exclude || [],
@@ -45,20 +46,20 @@ var AbtSearch = (function () {
     })
   }
 
-  function resetSearch(input, context) {
+  function resetFilter(input, context) {
     input.val('')
     context.show().unmark()
   }
 
-  function triggerSearchOnEnterKey(event, input, context, exclude) {
+  function triggerFilterOnEnterKey(event, input, context, exclude) {
     if (event.keyCode == 13) {
-      triggerSearch(input, context, exclude)
+      triggerFilter(input, context, exclude)
     }
   }
 
   return {
-    triggerSearch: triggerSearch,
-    resetSearch: resetSearch,
-    triggerSearchOnEnterKey: triggerSearchOnEnterKey,
+    triggerFilter: triggerFilter,
+    resetFilter: resetFilter,
+    triggerFilterOnEnterKey: triggerFilterOnEnterKey,
   }
 })()

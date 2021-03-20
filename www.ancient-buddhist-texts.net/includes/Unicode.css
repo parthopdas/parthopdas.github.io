@@ -2,29 +2,29 @@
 
 @font-face {
   font-family: ITM_TMS_UNI;
-  src: url('download/itmsu-r.woff2') format('woff2');
-  url('download/itmsu-r.ttf') format('ttf');
+  src: url('https://www.ancient-buddhist-texts.net/download/itmsu-r.woff2') format('woff2');
+  url('https://www.ancient-buddhist-texts.net/download/itmsu-r.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: ITM_TMS_UNI;
-  src: url('download/itmsu-i.woff2') format('woff2');
-  url('download/itmsu-i.ttf') format('ttf');
+  src: url('https://www.ancient-buddhist-texts.net/download/itmsu-i.woff2') format('woff2');
+  url('https://www.ancient-buddhist-texts.net/download/itmsu-i.ttf') format('ttf');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: ITM_TMS_UNI;
-  src: url('download/itmsu-b.woff2') format('woff2');
-  url('download/itmsu-b.ttf') format('ttf');
+  src: url('https://www.ancient-buddhist-texts.net/download/itmsu-b.woff2') format('woff2');
+  url('https://www.ancient-buddhist-texts.net/download/itmsu-b.ttf') format('ttf');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: ITM_TMS_UNI;
-  src: url('download/itmsu-bi.woff2') format('woff2');
-  url('download/itmsu-bi.ttf') format('ttf');
+  src: url('https://www.ancient-buddhist-texts.net/download/itmsu-bi.woff2') format('woff2');
+  url('https://www.ancient-buddhist-texts.net/download/itmsu-bi.ttf') format('ttf');
   font-weight: bold;
   font-style: italic;
 }
@@ -66,8 +66,4 @@ a:active {font-family: ITM_TMS_UNI, "Gandhari Unicode", "Times Ext Roman","Times
 
 .TT {font-family: ITM_TMS_UNI, "Gandhari Unicode", "Times Ext Roman","Times New Roman", "Times", "Indic Times", Gentium, serif;
 font-variant:normal;}
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> 7dfc4bb (Initial state)
