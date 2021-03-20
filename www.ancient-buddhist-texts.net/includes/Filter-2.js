@@ -59,7 +59,12 @@
           context.has("mark"),
           (_i, e) => {
             const markedElements = $(e).find("[data-markjs='true']")
-            const uniqueMarkedTexts = new Set($.map(markedElements, x => x.textContent.toLocaleLowerCase()))
+            const uniqueMarkedTexts = new Set(
+              $.map(
+                markedElements,
+                x => x.textContent.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+              )
+            )
             if (uniqueMarkedTexts.size !== keywordRegExStrs.length) {
               $(e).hide()
             }
