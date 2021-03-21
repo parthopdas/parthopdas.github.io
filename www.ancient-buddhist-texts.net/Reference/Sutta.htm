@@ -30,7 +30,7 @@ vr  {color:red; }
 mark {background: orange;}
 em  {color:green; font-style: normal; font-weight:bold; font-size:110%; margin-left:1em;}
 hide {display:none; }
-#NoResults {display:none; }
+#notFoundMarker {display:none; }
 </style>
 
 <script type="text/javascript" src="open-graph.js"></script>
@@ -114,19 +114,22 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 
 <p>&#160;</p>
 
+<div>
+<div style="display: flex; margin-bottom: 0.2rem;">
+  <input 
+    type="text" 
+    id="TableInput" 
+    style="line-height: 1.5rem; flex: 1; margin-right: 0.3rem;"
+    placeholder="Enter Sutta Name and Number, or Abbreviation"
+  >
+  <button id="FilterSutta" style="margin-right: 0.3rem;" onclick="Filter.triggerFilter(document.getElementById('TableInput'), $('#SuttaTable tr').not(':eq(0)') )">Filter</button>
+  <button id="ResetTable" style="" onclick="$('#TableInput').val(''); Filter.triggerFilter(document.getElementById('TableInput'), $('#SuttaTable tr').not(':eq(0)') )">Reset</button>
+</div>
+
 <table id="SuttaTable">
 <tr class="Header">
  <th class="SuttaName">Sutta Name and Number, or Abbreviation</th>
  <th class="Links">Links</th>
-</tr>
-
-<tr>
-<th class="SuttaName">
-<input type="text" style="width:320px; padding: 4px; line-height: 20px;" id="TableInput" placeholder="Enter Sutta Name and Number, or Abbreviation">
-<button id="FilterSutta" style="height: 32px;" onclick="FilterSutta()">Filter</button>
-<button id="ResetTable" style="height: 32px;" onclick="ResetTable()">Reset</button>
-</th>
-<th class="Links" id="Links"><p>&#x2003;</p></th>
 </tr>
 
 <div class="Digha">
@@ -13039,73 +13042,17 @@ Mil <vr>ch</vr> = Milindapañhapāḷi.</p>
 
 <tr><td><p>Mil 8. Nigamanaṁ</p></td><td><p><a href="https://suttacentral.net/mil8/pli/ms">Pāḷi</a>&#x2003;<a href="https://suttacentral.net/mil8/en/tw_rhysdavids">Eng</a></p></td></tr>
 
-<tr id="NoResults"><td><p><mark>&#160;There are no results, please check your spelling, or try again.&#160;</mark> </p></td><td><p></p></td></tr>
+<tr id="notFoundMarker"><td><p><mark>&#160;There are no results, please check your spelling, or try again.&#160;</mark> </p></td><td><p></p></td></tr>
 
 </div>
 
 </table>
+</div>
 
-<script>
-function FilterSutta() {
-    // Declare variables
-    var input, filter, table, tr, td, i;
-    input = document.getElementById("TableInput");
-    filter = input.value.toLowerCase();
-    filter = filter.replace(/ +$/, '')
-    filter = filter.replace(/ṃ/g, "ṁ")
-    filter = filter.replace("cull", "cūḷ")
-    table = document.getElementById("SuttaTable");
-    tr = table.getElementsByTagName("tr");
-
-//   if (filter.length < 3) filter = ""
-    const variations = { 
-        'a': '[aā]',
-        'i': '[iī]',
-        'u': '[uū]',
-        'n': '[nñṇṅ]',
-        't': '[tṭ]',
-        'd': '[dḍ]',
-        'l': '[lḷ]',
-        'm': '[mṁṁ]',
-    }
-    const str = filter.replace(/[aiuntdlm]/g, (m) => variations[m])
-    const filterRegex = new RegExp(str)
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            if (td.innerHTML.toLowerCase().search(filterRegex) > -1) {
-                tr[i].style.display = "";
-                            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-    if ($('#SuttaTable').find('tr:visible').length === 2) {
-        $('tr#NoResults').show()
-    } else {
-        $('tr#NoResults').hide()
-    }
-}
-</script>
-<script>
-function ResetTable(){
-  document.getElementById("TableInput").value = "";
-  var $rows = $('#SuttaTable tr');
-  $rows.show();
-  $('tr#NoResults').hide()
-}
-</script>
-<script>
-var input = document.getElementById("TableInput");
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("FilterSutta").click();
-  }
-});
-</script>
+<script type="text/javascript" src="../includes/underscore-min.js"></script>
+<script type="text/javascript" src="../includes/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../includes/mark.min.js"></script>
+<script type="text/javascript" src="../includes/Filter.js"></script>
 
 <p>&#160;</p>
 
