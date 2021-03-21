@@ -1,5 +1,5 @@
-var Filter= (function () {
-  function createRegEx(term) {
+﻿var Filter= (function () {
+  function createRegExStr(term) {
     const variations = {
       'a': '[aā]',
       'i': '[iī]',
@@ -20,24 +20,58 @@ var Filter= (function () {
       .replace(/ +$/, '')
       .replace(/ṃ/g, "ṁ")
       .replace("cull", "cūḷ")
-    return new RegExp(str, 'gi')
+
+    return str
   }
 
+  /**
+   * Handles multi word search, all words must exist. This implies single word searches as well.
+   * E.g. "Anāthapiṇḍika caravan", "monk striving", "Mahāpanthaka Cūḷapanthaka"
+   *
+   * How:
+   * - Split by space, take non empty parts
+   *   - Convert them to regex strings that accept pāli diacritic.
+   * - Note down the number of parts
+   * - Combine them with regex alternation and create a regex
+   * - Ask markjs to do its job
+   * - Once markjs is done, for each of the items pass to markjs
+   *   - If the size of the unique text from the marks equals the number of parts, show
+   *   - Else hide
+   * - Dobounce the function to improve responsiveness
+   */
   function triggerFilter(input, context, exclude) {
     context.show().unmark()
 
-    var filterTerm = $(input).val()
+    var filterTerm = $(input).val().trim()
     if (!filterTerm || filterTerm.length < 3) {
       return
     }
 
-    const filterRegex = createRegEx(filterTerm)
-    context.markRegExp(filterRegex, {
+    const keywordRegExStrs = filterTerm.split(' ').filter(x => x.trim()).map(createRegExStr).map(x => `(${x})`)
+    const filterRegex = new RegExp(keywordRegExStrs.join('|'), 'gi')
+    new Mark(context.toArray()).markRegExp(filterRegex, {
       'diacritics': true,
       'exclude': exclude || [],
       'done': function () {
         context.not(":has(mark)").hide()
-        if (context.has("mark").length) {
+
+        $.each(
+          context.has("mark"),
+          (_i, e) => {
+            const markedElements = $(e).find("[data-markjs='true']")
+            const uniqueMarkedTexts = new Set(
+              $.map(
+                markedElements,
+                x => x.textContent.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+              )
+            )
+            if (uniqueMarkedTexts.size !== keywordRegExStrs.length) {
+              $(e).hide()
+            }
+          }
+        )
+
+        if (context.has("mark").filter(":visible").length) {
           $('#notFoundMarker').hide()
         } else {
           $('#notFoundMarker').show()
@@ -45,6 +79,8 @@ var Filter= (function () {
       },
     })
   }
+
+  const triggerFilterDebounced = _.debounce(triggerFilter, 300)
 
   function resetFilter(input, context) {
     input.val('')
@@ -58,7 +94,7 @@ var Filter= (function () {
   }
 
   return {
-    triggerFilter: triggerFilter,
+    triggerFilter: triggerFilterDebounced,
     resetFilter: resetFilter,
     triggerFilterOnEnterKey: triggerFilterOnEnterKey,
   }
