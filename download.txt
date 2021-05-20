@@ -5,3 +5,4 @@ wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Refere
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Buddhist-Texts/C3-Comparative-Dhammapada/CD-Table.htm
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Known-Nun-Disciples.htm
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Sutta.htm
+wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Christian-Buddhist-Conversion.htm
