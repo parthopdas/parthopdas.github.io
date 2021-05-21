@@ -100,10 +100,18 @@ const getOffset = () => {
   }
 }
 
-$('#christian-era').keyup(function() {
+const updateBuddhistEra = () => {
   const ce = parseFloat($('#christian-era').val())
   const be = ce + (544 + getOffset())
   $('#buddhist-era').val(be)
+}
+
+$('#christian-era').keyup(function() {
+  updateBuddhistEra()
+})
+
+$('#christian-era').on('change', function() {
+  updateBuddhistEra()
 })
 
 const updateChristianEra = () => {
@@ -113,6 +121,10 @@ const updateChristianEra = () => {
 }
 
 $('#buddhist-era').keyup(function() {
+  updateChristianEra()
+})
+
+$('#buddhist-era').on('change', function() {
   updateChristianEra()
 })
 
