@@ -14,28 +14,6 @@
 <script type="text/javascript" src="open-graph.js"></script>
 <script type="text/javascript" src="../includes/Includes-Top-Level.js"></script>
 
-<script language="JavaScript">
-function CalculateBuddhaYear(Btext, form)
-{
-var B = parseFloat(Btext);
-form.AnswerB.value = B + 544;
-}
-
-function CalculateChristianYear(Ctext, form)
-{
-var C = parseFloat(Ctext);
-form.AnswerC.value = C - 544;
-}
-
-function ClearForm(form)
-{
-form.input_B.value = "";
-form.input_C.value = "";
-form.AnswerB.value = "";
-form.AnswerC.value = "";
-}
-</script>
-
 </head>
 
 <body onload="window.status=('')">
@@ -58,25 +36,6 @@ form.AnswerC.value = "";
 <div class="center">
 
 <p>for years B.C. simply enter a minus sign;<br>for years in the Thai calendar subtract one year</p>
-
-<form name="CalculatorB" method="post">
-
-<p>
-Christian Era: 
-<input type="text" name="input_B" size="10" /> 
-<input type="button" value="=" name="AddButton" onclick="CalculateBuddhaYear(this.form.input_B.value, this.form)" /> 
-Buddhist Era: 
-<input type="text" name="AnswerB" size="10" />
-</p>
-
-<form name="CalculatorC" method="post">
-<p>
-Buddhist Era: 
-<input type="text" name="input_C" size="10" /> 
-<input type="button" value="=" name="AddButton" onclick="CalculateChristianYear(this.form.input_C.value, this.form)" /> 
-Christian Era: 
-<input type="text" name="AnswerC" size="10" />
-</p>
 
 <div id="conversion-div">
   <div>
@@ -102,18 +61,15 @@ Christian Era:
     <input id="buddhist-era" type="number" placeholder="year (e.g. 2021)" style="width: 90%;">
     </input>
   </div>
-  <div id="date-style-container">
-    <label for="date-style" style="font-size: smaller">Date style:</label>
-    <select name="date-style" id="date-style">
-      <option value="thai">Thai</option>
-      <option value="sl">Sri Lankan</option>
-    </select>  
+  <div id="date-style-container" style="display: flex; flex-direction: row;">
+
+    <label for="date-style" style="font-size: smaller; margin-right: 0.1rem;">Date style:</label>
+    <input type="radio" id="date-style-thai" name="date-style" value="thai">
+    <label for="date-style-thai" style="font-size: smaller; margin-right: 0.2rem;">Thai</label><br>
+    <input type="radio" id="date-style-sl" name="date-style" value="sl">
+    <label for="date-style-sl" style="font-size: smaller">Sri Lankan</label><br>
   </div>
 </div>
-
-<!-- <p><input type="checkbox" name="thai" value="time"  />Check for setting Thai Time</p>
-
-<p><input type="button" value="Clear Fields" name="ClearButton" onclick="ClearForm()" /></p> -->
 
 </div>
 
@@ -130,7 +86,8 @@ const dateStyleSetting = () => {
   return localStorage.getItem(dateStyleSettingsKey) || "thai";
 }
 
-$('#date-style').val(dateStyleSetting())
+// $('#date-style').val(dateStyleSetting())
+$(`input[name=date-style][value='${dateStyleSetting()}']`).prop("checked", true)
 
 const getOffset = () => {
   const dateStyle = dateStyleSetting()
@@ -159,8 +116,8 @@ $('#buddhist-era').keyup(function() {
   updateChristianEra()
 })
 
-$('#date-style').on('change', function() {
-  localStorage.setItem(dateStyleSettingsKey, $('#date-style').val())
+$('input[type=radio][name=date-style]').on('change', function() {
+  localStorage.setItem(dateStyleSettingsKey, this.value)
   updateChristianEra()
 });
 
