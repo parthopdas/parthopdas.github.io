@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simple Buddhist-Christian Era Conversion Forms</title>
+<title>Simple Buddhist-Christian Era Conversion Form</title>
 
 <link rel="StyleSheet" type="text/css" href="../includes/Main.css" />
 
@@ -21,13 +21,13 @@
 <p class="NavBar1"><script type="text/javascript" src="../includes/Header-Top-Level+Link.js"></script></p>
 <p class="NavBar3"><a href="RF-index.htm">Reference Home Page</a></p>
 
-<p class="Heading3">Simple Buddhist-Christian Era Conversion Forms</p>
+<p class="Heading3">Simple Buddhist-Christian Era Conversion Form</p>
 
 <p>&#160;</p>
 
 <p class="center">Here are some javascript forms to make a quick conversion between the Buddhist and Christian Eras.</p>
 
-<p>According to the traditional dating the Buddha was born in 624 BC, attained Awakening 35 years later in 589 BC and entered Paribbāna in 544 BC. It is from the latter date that we take the Buddhist Era (Thailand dates it as year 0, Sri Lanka as year 1).</p>
+<p>According to the traditional dating the Buddha was born in 624 BC, attained Awakening 35 years later in 589 BC and entered Paribbāna in 544 BC. It is from the latter date that we take the Buddhist Era (Thailand dates it as year 1, Sri Lanka as year 0).</p>
 
 <p>Most scholars now think that the actual dates should be <a href="http://en.wikipedia.org/wiki/Gautama_Buddha#Mahaparinirvana">set approx. 100 years later</a> (there is much difference in opinion), but the dates in any case should not be taken as hard and fast, but rather as agreed times for the purposes of celebrations, etc.</p>
 
@@ -35,39 +35,40 @@
 
 <div class="center">
 
-<p>for years B.C. simply enter a minus sign;<br>for years in the Thai calendar subtract one year</p>
+    <label for="date-style" style="font-size: smaller; margin-right: 0.1rem;">Date style:</label><input type="radio" id="date-style-thai" name="date-style" value="thai">
+    <label for="date-style-thai" style="font-size: smaller; margin-right: 0.2rem;">Thai</label>
+    <input type="radio" id="date-style-sl" name="date-style" value="sl">
+    <label for="date-style-sl" style="font-size: smaller">Sri Lankan</label><br><br>
 
-<div id="conversion-div">
+<div id="pure-u">
   <div>
     <span style="text-align: left; font-size: smaller;">
-      Christian Era
+      Christian Date
     </span>
   </div>
   <div>
   </div>
-  <div>
-    <span style="text-align: left; font-size: smaller;">
-      Buddhist Era
-    </span>  
-  </div>
-  <div class="era-input-parent">
+   <div class="pure-u-1-4">
     <input id="christian-era" type="number" placeholder="year (e.g. 2021)" style="width: 90%;">
     </input>
   </div>
+
+
   <div style="align-self: center;">
-    <span>&#8660;</span>
+    <span>&#8661;</span>
   </div>
-  <div class="era-input-parent">
+
+  <div class="pure-u-1-4">
     <input id="buddhist-era" type="number" placeholder="year (e.g. 2021)" style="width: 90%;">
     </input>
   </div>
+ <div>
+    <span style="text-align: left; font-size: smaller;">
+      Buddhist Date
+    </span>  
+  </div>
   <div id="date-style-container" style="display: flex; flex-direction: row;">
 
-    <label for="date-style" style="font-size: smaller; margin-right: 0.1rem;">Date style:</label>
-    <input type="radio" id="date-style-thai" name="date-style" value="thai">
-    <label for="date-style-thai" style="font-size: smaller; margin-right: 0.2rem;">Thai</label><br>
-    <input type="radio" id="date-style-sl" name="date-style" value="sl">
-    <label for="date-style-sl" style="font-size: smaller">Sri Lankan</label><br>
   </div>
 </div>
 
@@ -75,7 +76,7 @@
 
 <p>&#160;</p>
 
-<p class="NavBar3"><a href="../Miscellaneous/History.htm#New" title="see the history of this website" target="_top">last updated: May 2011</a></p>
+<p class="NavBar3"><a href="../Miscellaneous/History.htm#New" title="see the history of this website" target="_top">last updated: May 2021</a></p>
 
 <footer style="clear:both"><div class="center"><script type="text/javascript" src="../includes/Footer-Top-Level.js"></script><img src="../logo.png" alt="Ancient Buddhist Texts" style="width:240px;" /></div></footer>
 
@@ -135,12 +136,12 @@ $('input[type=radio][name=date-style]').on('change', function() {
 
 </script>
 
-<style>
+<!-- <style>
   #conversion-div {
     display: grid; 
     grid-template-rows: auto 50% 50%; 
     grid-template-columns: 50% auto 50%; 
-    margin: 1rem 5rem 1rem 5rem; 
+    margin: 1rem 10rem 1rem 10rem; 
     padding: 0rem 1.5rem 1rem 0rem; 
     border: 1px solid lightgrey; 
     border-radius: 0.2rem;    
@@ -159,7 +160,7 @@ $('input[type=radio][name=date-style]').on('change', function() {
     margin: 0rem 0rem 0rem 0.7rem; 
     justify-self: left;    
   }
-</style>
+</style>-->
 
 </body>
 

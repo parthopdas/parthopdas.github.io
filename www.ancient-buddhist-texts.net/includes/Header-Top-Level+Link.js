@@ -28,7 +28,7 @@ injectheader += '</nav>';
 
 injectheader  += '<div class="pure-g-r phototable" style="width:300px; margin:auto;"><div class="pure-u-1-2"><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="NYYV98QBRSFE6"><input type="hidden" name="on0" value="choose amount:">&#160;&#160;&#160;choose amount:&#160;<br><select name="os0" style="margin-left:10px;"><option value="1a:">1a: $10.00 USD</option><option value="1b:">1b: $20.00 USD</option>	<option value="1c:">1c: $50.00 USD</option><option value="1d:">1d: $100.00 USD</option></select><input type="hidden" name="currency_code" value="USD"></div><div class="pure-u-1-2"><input type="image" src="https://www.ancient-buddhist-texts.net/images/donate-with-paypal.png" style="width:120px;" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"></form></div></div>';
 
-injectheader  += '<p class="center">Donations can also be sent in Litecoin ($LTC) to the following address:<br><b>LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp</b></p>';
+injectheader  += '<p class="center" style="color:grey;">Donations in Litecoin: LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp</p>';
 
 injectheader += '<p class="short-url center">Short URL: <span></span></p>';
 
