@@ -6,3 +6,10 @@ wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Buddhi
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Known-Nun-Disciples.htm
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Sutta.htm
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Christian-Buddhist-Conversion.htm
+
+rm -rf henri-van-zeyst.buddhasasana.net
+wget --page-requisites --no-parent  https://henri-van-zeyst.buddhasasana.net/basic-buddhism/basic-buddhism.htm
+wget https://henri-van-zeyst.buddhasasana.net/includes/open-graph.js --directory-prefix=henri-van-zeyst.buddhasasana.net/includes
+wget https://henri-van-zeyst.buddhasasana.net/includes/jquery-2.0.2.min.js --directory-prefix=henri-van-zeyst.buddhasasana.net/includes
+wget https://henri-van-zeyst.buddhasasana.net/includes/main.css --directory-prefix=henri-van-zeyst.buddhasasana.net/includes
+wget https://henri-van-zeyst.buddhasasana.net/images/CC-BY-SA.png --directory-prefix=henri-van-zeyst.buddhasasana.net/images

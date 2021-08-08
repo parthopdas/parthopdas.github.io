@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://henri-van-zeyst.buddhasasana.net/henri-van-zeyst.xml
