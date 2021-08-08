@@ -78,7 +78,8 @@ $.fn.toc = function(options) {
       var a = $('<a href="#"/>')
         .html(opts.headerText(i, heading, $h))
         .attr('href', 'javascript:showonlyone(\'' + opts.anchorName(i, heading, opts.prefix) + '\');');
-         var li = $('<li/>')
+      var li = $('<li/>')
+        .addClass(`${getTocId(i)}`)
         .addClass(opts.itemClass(i, heading, $h, opts.prefix))
         .append(a);
         ul.append(li);
