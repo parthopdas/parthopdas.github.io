@@ -3,8 +3,8 @@
 var authorname = '<meta name="author" content="Anandajoti Bhikkhu">';
 var pagetitle = '<meta property="og:title" content="' + document.title + '" />';
 var pageaddress = '<meta property="og:url" content="' + window.location.href + '" />';
-var imageaddress ='<meta property="og:image" content="http://www.ancient-buddhist-texts.net/Buddhist-Texts/Comparative-Dhammapada/Comparative-Dhammapada-Thumb.jpg" />';
-var desc = '"An edition of the P&#257;li Dhammapada with parallels from other Indian language traditions, together with a study, and a complete word index. Includes texts from the Patna Dharmapada, G&#257;ndh&#257;r&#299; Dharmapada, Ud&#257;navarga, Divy&#257;vad&#257;na, Mah&#257;vastu and other texts. "'
+var imageaddress ='<meta property="og:image" content="http://www.ancient-buddhist-texts.net/Textual-Studies/Metre-Tables/Metre-Tables-Thumb.jpg" />';
+var desc = '"A listing of the metres known to occur in Sanskrit and P&#257;li literature, along with explanations of how to make metre tables, an index and a searchable database. "'
 
 // end variables
 

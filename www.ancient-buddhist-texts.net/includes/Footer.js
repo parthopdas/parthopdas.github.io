@@ -10,15 +10,17 @@ injectfooter += '<a href="../../download/index.htm" title="download the fonts or
 
 injectfooter += '<a href="../../Miscellaneous/Links.htm" title="links to other resources on the net" target="_top"  class="button">outside&#160;links</a> ';
 
-injectfooter += '<a href="../../Miscellaneous/Copyright-Notice.htm" title="information about copyright status of the documents" target="_top" class="button">copyright</a><br>';
+injectfooter += '<a href="../../Miscellaneous/Copyright-Notice.htm" title="information about copyright status of the documents" target="_top" class="button">copyright</a></p>';
 
-injectfooter += '<p style="margin-top:-3px;">some of my other websites:</p><p class="NavBar2"><a href="http://www.photodharma.net/" title="5,000+ photographs in high-definition" target="_new" class="button" style="background-color:#5E879B;">Photo&#160;Dharma</a> ';
+injectfooter += '<p style="margin-top:-3px;">some of my other websites:</p><p class="NavBar2"><a href="http://www.photodharma.net/" title="15,000+ photographs in high-definition" target="_new" class="button" style="background-color:#5E879B;">Photo&#160;Dharma</a> ';
 
 injectfooter += '<a href="http://pali-text-images.net/" title="images of the Sri Lankan and Burmese Tipiṭakas" target="_new" class="button" style="background-color:#5E879B;">Pāḷi Text Images</a> ';
 
-injectfooter += '<a href="http://www.dharma-documentaries.net/" title="documentaries about Buddhism, its cultures and ecology" target="_new" class="button" style="background-color:#5E879B; letter-spacing:-1px;">Dharma&#160;Documentaries</a> ';
+injectfooter += '<a href="http://www.dharma-documentaries.net/" title="800+ documentaries about Buddhism, its cultures and ecology" target="_new" class="button" style="background-color:#5E879B; letter-spacing:-1px;">Dharma&#160;Documentaries</a> ';
 
 injectfooter += '<a href="http://www.buddhasasana.net/" title="writings on Dhamma by various authors" target="_new" class="button" style="background-color:#5E879B;">Buddhasāsana</a></p>';
+
+injectfooter += '<p style="padding:6px; width:100%; text-align:center;"><a href="https://www.exabytes.com/" target="_blank">&#160;hosting sponsored by exabytes.com&#160;</a></p>';
 
 if (document.getElementById('audio-player')) {
 
@@ -34,10 +36,10 @@ injectfooter += '<link rel="stylesheet" href="../../includes/skin/mediaelementpl
 
 if (location.hostname !== "www.ancient-buddhist-texts.net")
 {
-injectfooter += '<div  class="center" style="width:300px;"><p class="Notice" style="padding:0.5em;">this is a mirror or an offline copy of the main site if you have any problems please try<br /><br /><a href="http://www.ancient-buddhist-texts.net">VISITING THE MAIN SITE</a><br /><br />which is constantly being updated</p>';
+injectfooter += '<div  class="center" style="width:300px;"><p class="Notice" style="padding:0.5em;">this is a mirror or an offline copy of the main site if you have any problems please try<br /><br /><a href="http://www.ancient-buddhist-texts.net">VISITING THE MAIN SITE</a><br /><br />which is constantly being updated</p></div>';
 }
 
-injectfooter +='<script type="text/javascript">jQuery(document).ready(function() { jQuery("p").each(function(index, value) {value.id = "p_" + index;}); $("html, body").animate({scrollTop: $(window.location.hash).offset().top}, 500);});</script>';
+// injectfooter +='<script type="text/javascript">jQuery(document).ready(function() { jQuery("p").each(function(index, value) {value.id = "p_" + index;}); $("html, body").animate({scrollTop: $(window.location.hash).offset().top}, 500);});</script>';
 
 injectfooter +='<style type="text/css">#summary {display:block;}</style>';
 

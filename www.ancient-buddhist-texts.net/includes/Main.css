@@ -9,7 +9,7 @@ margin-top:1em;
 margin-left:auto;
 margin-bottom:2em;
 margin-right:auto;
-background-color:#FFF8F0;
+background-color:#FAFAF0;
 background-image:url(../images/siena.png);
 }
 
@@ -22,8 +22,11 @@ p::after
 content:" ";
 }
 
-
 .short-url {color:blue;}
+
+#next-btn1, #prev-btn1, #next-btn2, #prev-btn2, #navindex {background-color: #956198; color:white; font-weight:bold; padding:6px; border-width:0px;}
+
+#next-btn1:hover, #prev-btn1:hover, #next-btn2:hover, #prev-btn2:hover, #navindex:hover {color: yellow; }
 
 .Heading1 {text-align:center; color:darkblue; font-size:175%; font-weight:bold; }
 .Heading2 {text-align:center; color:darkblue; font-size:150%; font-weight:bold; }
@@ -246,7 +249,7 @@ div.left p, .left {text-align:left;}
 
 .LeftCol {
 position: relative;
-width: 49%;
+width: 48%;
 float: left;
 text-align:right;
 margin-bottom:1em;
@@ -255,7 +258,7 @@ padding-right:1%;
 
 .RightCol {
 position: relative;
-width: 49%;
+width: 48%;
 float: right;
 text-align:left;
 margin-bottom:1em;
@@ -417,7 +420,7 @@ font-size:100%;
 }
 
 .NavBar2 a:hover {
-color:yellow;
+color:red;
 text-decoration:none;
 font-size:100%;
 }
@@ -496,17 +499,15 @@ margin-bottom:10px;
 font-family:'Book Antiqua', 'Times New Roman', Serif;
 font-size:normal;
 font-weight:normal;
-text-align:center;
+text-align:right !important;
 
 overflow:auto;
 height:100%;
-margin-top:-25px;
-padding-top:25px;
+margin-top:240px;
+margin-left:-250px;
 width:15%;
 position:fixed;
-left:0;
-top:20;
-bottom:20;
+
 /* border-right:0.25em solid darkblue; */
 }
 

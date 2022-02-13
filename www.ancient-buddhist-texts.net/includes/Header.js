@@ -10,7 +10,7 @@ injectheader += '<a href="../../index.htm" target="_top" class="button" title="A
 
 injectheader += '<a href="../../Buddhist-Texts/BT-index.htm" target="_top" class="button" title="Original Texts in Pali, Sanskritised Prakrit, and Sanskrit - Comparative Editions of the Texts - Studies of their Collection and Prosody">Original&#160;Texts</a>';
 
-injectheader += '<a href="../../Texts-and-Translations/TT-index.htm" target="_top"  class="button" style="letter-spacing:-1px;" title="Buddhist Texts in the Original Languages, together with Annotated Translations">Texts&#160;&amp;&#160;Translations</a>';
+injectheader += '<a href="../../Texts-and-Translations/TT-index.htm" target="_top"  class="button"  title="Buddhist Texts in the Original Languages, together with Annotated Translations">Texts&#160;&amp;&#160;Translations</a>';
 
 injectheader += '<a href="../../English-Texts/ET-index.htm" target="_top"  class="button" title="Reworked Translations presented with less Notes and in English Only">English</a>';
 
@@ -26,9 +26,11 @@ injectheader += '<a href="../../Miscellaneous/Search.htm" target="_top" style="d
 
 injectheader += '</nav>';
 
-injectheader  += '<div class="pure-g-r phototable" style="width:300px; margin:auto;"><div class="pure-u-1-2"><form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="NYYV98QBRSFE6"><input type="hidden" name="on0" value="choose amount:">&#160;&#160;&#160;choose amount:&#160;<br><select name="os0" style="margin-left:10px;"><option value="1a:">1a: $10.00 USD</option><option value="1b:">1b: $20.00 USD</option>	<option value="1c:">1c: $50.00 USD</option><option value="1d:">1d: $100.00 USD</option></select><input type="hidden" name="currency_code" value="USD"></div><div class="pure-u-1-2"><input type="image" src="https://www.ancient-buddhist-texts.net/images/donate-with-paypal.png" style="width:120px;" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"></form></div></div>';
+injectheader  += '<div class="pure-g-r phototable center" style="max-width:100%; margin:auto;"><div class="pure-u-1-2"><a href="https://paypal.me/dharmarecords" target="_new"><input type="image" src="https://www.ancient-buddhist-texts.net/images/donate-with-paypal.png" style="width:120px; margin:auto; margin-left:20px;" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"></a><div class="pure-u-1-2"><input type="image" src="https://www.ancient-buddhist-texts.net/images/litecoindonate.png" style="width:120px; margin:auto;" border="0" name="submit" onclick="copyToClipboard(\'#lite\')" alt="Donate with Litecoin"></a></div></div></div>';
 
-injectheader  += '<p class="center" style="color:grey;">Donations in Litecoin: LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp</p>';
+injectheader  += '<p id="lite" style="display:none; ">LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp</p>';
+
+injectheader  += '<script type="text/javascript">function copyToClipboard(element) {var $temp = $("<input>"); $("body").append($temp); $temp.val($(element).text()).select(); document.execCommand("copy"); $temp.remove(); alert("litecoin can be bought on most crypto exchanges; my address LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp has been copied to clipboard.");}</script>';
 
 injectheader += '<p class="short-url center" style="font-variant:normal;">short url: <span></span></p><script src="../../includes/bitlr.js"></script><script>$.bitlr({apiKey: "23c47f073826eb0cdc1c2abedbb006976e0e0549",link: window.location.href, anchor: true, success:function(newLink) {$(".short-url span").html(newLink); }, error: function() {$(".urls").hide();}});</script>';
 

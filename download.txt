@@ -6,6 +6,7 @@ wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Buddhi
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Known-Nun-Disciples.htm
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Sutta.htm
 wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Reference/Christian-Buddhist-Conversion.htm
+wget --page-requisites --no-parent https://www.ancient-buddhist-texts.net/Textual-Studies/Metre-Tables/Tables-Filter.htm
 
 rm -rf henri-van-zeyst.buddhasasana.net
 wget --page-requisites --no-parent  https://henri-van-zeyst.buddhasasana.net/basic-buddhism/basic-buddhism.htm
