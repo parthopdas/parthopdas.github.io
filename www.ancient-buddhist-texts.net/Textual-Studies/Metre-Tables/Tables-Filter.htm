@@ -51,7 +51,7 @@ Diacritics can be entered, and partial names like <em>Megh</em> are allowed.</p>
 <table id="Metres">
 <tr>
 <th>
-<input type="text" id="TableInput" style="display: inline-block; width:100%; line-height: 20px; padding: 4px; " onkeyup="Filter.triggerFilter(this, $('#Metres tr').not(':eq(0)') )" placeholder="Enter Metre Name or Number, or Metre Profile">
+<input type="text" id="TableInput" style="display: inline-block; width:100%; line-height: 20px; padding: 4px; " onkeydown="Filter.replaceMetreOutlineCharacters(this, event)" onkeyup="Filter.triggerFilter(this, $('#Metres tr').not(':eq(0)') )" placeholder="Enter Metre Name or Number, or Metre Profile">
 </th>
 
 </tr>

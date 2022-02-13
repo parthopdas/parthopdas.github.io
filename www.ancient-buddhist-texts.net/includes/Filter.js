@@ -24,6 +24,20 @@
     return str
   }
 
+  function replaceMetreOutlineCharacters(input, event) {
+    var newKey = event.key
+    if (event.key === '1') {
+      newKey = '⏑'
+    } else if (event.key === '2') {
+      newKey = '−'
+    }
+
+    if (event.key !== newKey) {
+      $(input).val($(input).val() + newKey)
+      event.preventDefault()
+    }
+  }
+
   /**
    * Handles multi word search, all words must exist. This implies single word searches as well.
    * E.g. "Anāthapiṇḍika caravan", "monk striving", "Mahāpanthaka Cūḷapanthaka"
@@ -97,5 +111,6 @@
     triggerFilter: triggerFilterDebounced,
     resetFilter: resetFilter,
     triggerFilterOnEnterKey: triggerFilterOnEnterKey,
+    replaceMetreOutlineCharacters: replaceMetreOutlineCharacters,
   }
 })()
