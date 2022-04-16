@@ -30,7 +30,7 @@ injectheader  += '<div class="pure-g-r phototable center" style="max-width:100%;
 
 injectheader  += '<p id="lite" style="display:none; ">LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp</p>';
 
-injectheader  += '<script type="text/javascript">function copyToClipboard(element) {var $temp = $("<input>"); $("body").append($temp); $temp.val($(element).text()).select(); document.execCommand("copy"); $temp.remove(); alert("litecoin can be bought on most crypto exchanges; my address LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp has been copied to clipboard.");}</script>';
+injectheader  += '<script type="text/javascript">function copyToClipboard(element) {var $temp = $("<input>"); $("body").append($temp); $temp.val($(element).text()).select(); document.execCommand("copy"); $temp.remove(); alert("litecoin can be bought on most crypto exchanges; my address LQZ9fVHF3wL6ihwEUcRFiCpcD7f2dfd3Kp has been copied to the clipboard.");}</script>';
 
 injectheader += '<p class="short-url center" style="font-variant:normal;">short url: <span></span></p><script src="../../includes/bitlr.js"></script><script>$.bitlr({apiKey: "23c47f073826eb0cdc1c2abedbb006976e0e0549",link: window.location.href, anchor: true, success:function(newLink) {$(".short-url span").html(newLink); }, error: function() {$(".urls").hide();}});</script>';
 

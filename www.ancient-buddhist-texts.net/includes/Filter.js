@@ -24,7 +24,7 @@
     return str
   }
 
-  function replaceMetreOutlineCharacters(input, event) {
+function replaceMetreOutlineCharacters(input, event) {
     var newKey = event.key
     if (event.key === '1') {
       newKey = '⏑'
@@ -57,11 +57,11 @@
     context.show().unmark()
 
     var filterTerm = $(input).val().trim()
-    if (!filterTerm || filterTerm.length < 3) {
+    if (!filterTerm || filterTerm.length < 2) {
       return
     }
 
-    const keywordRegExStrs = filterTerm.split(' ').filter(x => x.trim()).map(createRegExStr).map(x => `(${x})`)
+    const keywordRegExStrs = filterTerm.split('  ').filter(x => x.trim()).map(createRegExStr).map(x => `(${x})`)
     const filterRegex = new RegExp(keywordRegExStrs.join('|'), 'gi')
     new Mark(context.toArray()).markRegExp(filterRegex, {
       'diacritics': true,
@@ -107,10 +107,10 @@
     }
   }
 
-  return {
+return {
     triggerFilter: triggerFilterDebounced,
     resetFilter: resetFilter,
     triggerFilterOnEnterKey: triggerFilterOnEnterKey,
     replaceMetreOutlineCharacters: replaceMetreOutlineCharacters,
   }
-})()
+})() 

@@ -1,0 +1,306 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Simple Buddhist-Christian Era Calculators</title>
+
+<link rel="StyleSheet" type="text/css" href="../includes/Main.css" />
+
+<script type="text/javascript" src="open-graph.js"></script>
+<script type="text/javascript" src="../includes/Includes-Top-Level.js"></script>
+<style type="text/css">
+.pure-u-1-4 {width:6em;}
+</style>
+</head>
+
+<body onload="window.status=('')">
+
+<p class="NavBar1"><script type="text/javascript" src="../includes/Header-Top-Level+Link.js"></script></p>
+<p class="NavBar3"><a href="RF-index.htm">Reference Home Page</a></p>
+
+<p class="Heading2">Simple Buddhist-Christian Era Calculators</p>
+
+<p>&#160;</p>
+
+<p class="Heading3x">Official Buddhist Calendar</p>
+
+<p>According to the traditional dating the Buddha was born in 624 BC, attained Awakening 35 years later in 589 BC and entered Paribbāna in 544 BC. It is from the latter date that we take the Buddhist Era (Thailand, Cambodia and Laos date it as year 0 or BC 543, Sri Lanka, Myanmar and India as year 1 or BC 544).</p>
+
+<p>Most scholars now think that the actual dates should be <a href="http://en.wikipedia.org/wiki/Gautama_Buddha#Mahaparinirvana">set approx. 100 years later</a> (there is much difference in opinion), but the dates in any case should not be taken as hard and fast, but rather as agreed times for the purposes of celebrations, etc. (<a href="https://en.wikipedia.org/wiki/Buddhist_calendar">more details on Wikipedia</a>)</p>
+
+<!--<p>Christians may not realise that the same situation applies to Christ as there was a miscalculation in the early Church and <a href="http://en.wikipedia.org/wiki/Jesus#Possible_year_of_birth">it is now believed</a> Jesus was born between 2 and 7 years before Christ :)</p>-->
+
+<div class="center">
+
+    <label for="date-style" style="margin-right: 0.1rem;">Date style:</label><input type="radio" id="date-style-thai" name="date-style" value="thai">
+    <label for="date-style-thai" style="margin-right: 0.2rem;">Thai/Cambodia/Laos</label>
+    <input type="radio" id="date-style-sl" name="date-style" value="sl">
+    <label for="date-style-sl">Sri Lanka/Myanmar/India</label><br><br>
+
+<div style="width:7em;">
+<div id="pure-u-1-4">
+<input id="common1-era" type="number" placeholder="year (e.g. 2022)" style="width: 90%;">
+        <p style="color:darkred; font-size: smaller;"><b>Christian Date</b></p>
+  </div>
+
+  <p style="color:darkred; text-align:center; margin:-18px;">&#8661;</p>
+
+<div id="pure-u-1-4">
+        <p style="color:darkred; font-size: smaller;"><b>Buddhist Date</b></p>
+   <input id="buddhist-era" type="number" placeholder="year (e.g. 2565)" style="width: 90%;">
+  </div>
+</div>
+</div>
+
+<p>&#160;</p>
+
+
+<p class="Heading3x">Vikram Samvat</p>
+
+<p>Another calendar that was in use for a long time throughout India is the Vikram Samvat, and it is in use in Nepal to this day. Although this was a Hindu calendar, it was also adopted by Buddhist communities in northern India, and some inscriptions at Buddhist sites use it. The main form of this calendar starts 57 years before the Christian era (<a href="https://en.wikipedia.org/wiki/Vikram_Samvat">more details on Wikipedia</a>)</p>
+
+<div class="center">
+
+<div style="width:7em;">
+<div id="pure-u-1-4">
+    <input id="common3-era" type="number" placeholder="year (e.g. 2022)" style="width: 90%;">
+        <p style="color:darkred; font-size: smaller;"><b>Christian Date</b></p>
+  </div>
+
+  <p style="color:darkred; text-align:center; margin:-18px;">&#8661;</p>
+
+<div id="pure-u-1-4">
+     <p style="color:darkred;  font-size: smaller;"><b>Vikram Samvat Date</b></p>
+   <input id="samvat-era" type="number" placeholder="year (e.g. 2079)" style="width: 90%;">
+  </div>
+</div>
+
+</div>
+
+<p>&#160;</p>
+
+<p class="Heading3x">Cūḷasakarat</p>
+
+<p>Another Buddhist calendar that has been in use in SE Asia is the Cūḷasakarat, whose base date is 638 CE. This is a format that is mainly found in manuscripts and inscriptions over a wide area including Myanmar, Thailand, Laos and Cambodia. (<a href="https://en.wikipedia.org/wiki/Chula_Sakarat">more details on Wikipedia</a>)</p>
+
+<div class="center">
+
+<div style="width:7em;">
+<div id="pure-u-1-4">
+    <input id="common2-era" type="number" placeholder="year (e.g. 2022)" style="width: 90%;">
+        <p style="color:darkred; font-size: smaller;"><b>Christian Date</b></p>
+  </div>
+
+  <p style="color:darkred; text-align:center; margin:-18px;">&#8661;</p>
+
+<div id="pure-u-1-4">
+     <p style="color:darkred;  font-size: smaller;"><b>Cūḷasakarat Date</b></p>
+   <input id="sakarat-era" type="number" placeholder="year (e.g. 1384)" style="width: 90%;">
+  </div>
+</div>
+
+</div>
+
+<p>&#160;</p>
+
+
+
+<p class="NavBar3"><a href="../Miscellaneous/History.htm#New" title="see the history of this website" target="_top">last updated: January 2022</a></p>
+
+<footer style="clear:both"><div class="center"><script type="text/javascript" src="../includes/Footer-Top-Level.js"></script><img src="../logo.png" alt="Ancient Buddhist Texts" style="width:240px;" /></div></footer>
+
+<script>
+
+const dateStyleSettingsKey = 'c-b-conversion-date-style'
+
+const dateStyleSetting = () => {
+  return localStorage.getItem(dateStyleSettingsKey) || "thai";
+}
+
+// $('#date-style').val(dateStyleSetting())
+$(`input[name=date-style][value='${dateStyleSetting()}']`).prop("checked", true)
+
+const getOffset = () => {
+  const dateStyle = dateStyleSetting()
+  if (dateStyle === "thai") {
+    return 0
+  } else if (dateStyle === "sl") {
+    return 1
+  } else {
+    throw `unknown option - write code to handle option '${dateStyle}'`
+  }
+}
+
+const updateBuddhistEra = () => {
+  const ce = parseFloat($('#common1-era').val())
+  const be = ce + (543 + getOffset())
+  $('#buddhist-era').val(be)
+}
+
+$('#common1-era').keyup(function() {
+  updateBuddhistEra()
+})
+
+$('#common1-era').on('change', function() {
+  updateBuddhistEra()
+})
+
+const updateCommon1Era = () => {
+  const be = parseFloat($('#buddhist-era').val())
+  const ce = be - (543 + getOffset())
+  $('#common1-era').val(ce)
+}
+
+$('#buddhist-era').keyup(function() {
+  updateCommon1Era()
+})
+
+$('#buddhist-era').on('change', function() {
+  updateCommon1Era()
+})
+
+$('input[type=radio][name=date-style]').on('change', function() {
+  localStorage.setItem(dateStyleSettingsKey, this.value)
+  updateCommon1Era()
+});
+
+
+
+// Samvat
+
+const updateSamvatEra = () => {
+  const coe3 = parseFloat($('#common3-era').val())
+  const sv = coe3 + (57 + getOffset())
+  $('#samvat-era').val(sv)
+}
+
+$('#common3-era').keyup(function() {
+  updateSamvatEra()
+})
+
+$('#common3-era').on('change', function() {
+  updateSamvatEra()
+})
+
+const updateCommon3Era = () => {
+  const sv = parseFloat($('#samvat-era').val())
+  const coe3 = sv - (57 + getOffset())
+  $('#common3-era').val(coe3)
+}
+
+$('#samvat-era').keyup(function() {
+  updateCommon3Era()
+})
+
+$('#samvat-era').on('change', function() {
+  updateCommon3Era()
+})
+
+$('input[type=radio][name=date-style]').on('change', function() {
+  localStorage.setItem(dateStyleSettingsKey, this.value)
+  updatecommon3Era()
+}); 
+
+/*
+const dateStyle3SettingsKey = 'n-s-conversion-date-style'
+
+const dateStyle3Setting = () => {
+  return localStorage.getItem(dateStyle3SettingsKey) || "northern";
+}
+
+// $('#date-style').val(dateStyleSetting())
+$(`input[name=date-style3][value='${dateStyle3Setting()}']`).prop("checked", true)
+
+const getOffset = () => {
+  const dateStyle = dateStyle3Setting()
+  if (dateStyle3 === "northern") {
+    return 0
+  } else if (dateStyle3 === "southern") {
+    return 1
+  } else {
+    throw `unknown option - write code to handle option '${dateStyle3}'`
+  }
+}
+
+const updateSamvatEra = () => {
+  const ns = parseFloat($('#common3-era').val())
+  const ss = ns - (57 + getOffset())
+  $('#samvat-era').val(ss)
+}
+
+$('#common3-era').keyup(function() {
+  updateSamvatEra()
+})
+
+$('#common3-era').on('change', function() {
+  updateSamvatEra()
+})
+
+const updateCommon3Era = () => {
+  const ss = parseFloat($('#samvat-era').val())
+  const ns = ss + (57 + getOffset())
+  $('#common3-era').val(ns)
+}
+
+$('#samvat-era').keyup(function() {
+  updateCommon3Era()
+})
+
+$('#samvat-era').on('change', function() {
+  updateCommon3Era()
+})
+
+$('input[type=radio][name=date-style]').on('change', function() {
+  localStorage.setItem(dateStyle3SettingsKey, this.value)
+  updateCommon3Era()
+});
+
+*/
+
+
+// Sakarat
+
+const updateSakaratEra = () => {
+  const coe = parseFloat($('#common2-era').val())
+  const se = coe - (638 + getOffset())
+  $('#sakarat-era').val(se)
+}
+
+$('#common2-era').keyup(function() {
+  updateSakaratEra()
+})
+
+$('#common2-era').on('change', function() {
+  updateSakaratEra()
+})
+
+const updateCommon2Era = () => {
+  const se = parseFloat($('#sakarat-era').val())
+  const coe = se + (638 + getOffset())
+  $('#common2-era').val(coe)
+}
+
+$('#sakarat-era').keyup(function() {
+  updateCommon2Era()
+})
+
+$('#sakarat-era').on('change', function() {
+  updateCommon2Era()
+})
+
+$('input[type=radio][name=date-style]').on('change', function() {
+  localStorage.setItem(dateStyleSettingsKey, this.value)
+  updateCommon2Era()
+});
+
+
+</script>
+
+</body>
+
+</html>
