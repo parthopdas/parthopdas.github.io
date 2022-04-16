@@ -205,7 +205,7 @@ const checkPtsFilterMatch = (cellText, filter, ptsPartsInFilter, suttaDataGroups
     }
     console.log('>>>>', intermediateFilter)
   }
-  return cellTextLower.startsWith(filter) || (intermediateFilter && cellTextLower === intermediateFilter)
+  return cellTextLower === filter || (intermediateFilter && cellTextLower === intermediateFilter)
 }
 
 const getSuttaDataGroupsFn = () => _.memoize(() => _.groupBy(suttaData, s => `${s.pts?.n ?? ''} ${s.pts?.v ?? ''}`.toLowerCase()))
